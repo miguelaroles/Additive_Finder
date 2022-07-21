@@ -1,3 +1,35 @@
-<ion-content>
-  <p>list works!</p>
+<ion-header collapse="fade">
+  <ion-toolbar>
+    <ion-title class="ion-text-left">Liste des additifs</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon class="ion-padding-horizontal" name="information-circle-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="list-page app-content">
+  <ion-list>
+    <ion-item *ngFor="let item of list" lines="none" class="ion-item ion-no-padding ion-no-margin">
+      <ion-grid class="list-grid ion-no-margin ion-no-padding">
+        <ion-row [routerLink]="['/item',item.id]" class="ion-no-margin ion-no-padding ion-activatable ripple-parent">
+          <ion-col class="list-id {{ item.level | color }}" size="3">
+            <ion-text>E{{ item.id }}</ion-text>
+          </ion-col>
+          <ion-col class="list-detail ion-no-padding ion-no-margin" size="7">
+            <ion-label class="label ion-text-wrap ion-padding-start">{{ item.name }}</ion-label>
+            <ion-text class="text ion-padding-top ion-padding-start">{{ item.type }}</ion-text>
+          </ion-col>
+          <ion-col class="list-icon ion-padding-end" size="2">
+            <ion-icon name="caret-forward-circle-outline"></ion-icon>
+          </ion-col>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll threshold="100px" id="infinite-scroll">
+    <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more data...">
+
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

@@ -1,3 +1,33 @@
-<ion-content>
-  <p>search works!</p>
+<ion-header collapse="fade">
+  <ion-toolbar>
+    <ion-title class="ion-text-left">Rechercher</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon class="ion-padding-horizontal" name="information-circle-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="search-page app-content">
+  <ion-grid>
+    <ion-row class="search-inner ion-align-items-center ion-justify-content-center">
+      <ion-col size="4" sizeXs="12">
+        <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
+          <ion-item class="ion-margin-bottom search-input">
+            <ion-label class="search-label">E</ion-label>
+            <ion-input type="text" formControlName="search"></ion-input>
+          </ion-item>
+          <ion-button
+            [disabled]="!searchForm.valid"
+            class="ion-margin-top"
+            shape="round"
+            expand="block"
+            color="primary"
+            (click)="submitForm()"
+          >
+            <ion-icon name="search-outline"></ion-icon>
+            <ion-text class="ion-padding-start">rechercher</ion-text>
+          </ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

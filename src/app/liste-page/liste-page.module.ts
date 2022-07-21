@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
 import { IonicModule } from "@ionic/angular";
 import {RouterModule, Routes} from "@angular/router";
+import { ColorPipe } from './list/pipes/color.pipe';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    ListComponent
+    ListComponent,
+    ColorPipe
   ],
   imports: [
     CommonModule,

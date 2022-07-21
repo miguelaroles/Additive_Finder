@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ItemComponent } from './item/item.component';
 import { IonicModule } from "@ionic/angular";
 import {RouterModule, Routes} from "@angular/router";
+import { ColorPipe } from './item/pipes/color.pipe';
+import { LegendPipe } from './item/pipes/legend.pipe';
 
 const routes: Routes = [
   {
@@ -14,7 +16,9 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    ItemComponent
+    ItemComponent,
+    ColorPipe,
+    LegendPipe
   ],
   imports: [
     CommonModule,

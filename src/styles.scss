@@ -1,1 +1,147 @@
 /* You can add global styles to this file, and also import other style files */
+.list-id {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6em;
+}
+.list-detail {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid #eeeeee;
+  .label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    font-weight: 600;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .text {
+    font-size: 0.9em;
+  }
+}
+.list-icon {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid #eeeeee;
+}
+.list-grid {
+  position: relative;
+  --ion-grid-width: 100%;
+  .danger {
+    color: #000000;
+    background-color: #f50057;
+    border-bottom: 1px solid #d81b60;
+  }
+  .warning {
+    color: #000000;
+    background-color: #ef6c00;
+    border-bottom: 1px solid #f57c00;
+  }
+  .tertiary {
+    color: #000000;
+    background-color: #ffab40;
+  }
+  .success {
+    color: #000000;
+    background-color: #69f0ae;
+    border-bottom: 1px solid #80cbc4;
+  }
+}
+.list-item > .item-native {
+  padding-left: 0 !important;
+}
+.ion-item {
+  --padding-start: 0px;
+  --inner-padding-end: 0px;
+}
+
+.item-page {
+  .item-page-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+  }
+  .item-page-header.danger {
+    color: #000000;
+    background-color: #f50057;
+    border-bottom: 1px solid #d81b60;
+  }
+  .item-page-header.warning {
+    color: #000000;
+    background-color: #ef6c00;
+    border-bottom: 1px solid #f57c00;
+  }
+  .item-page-header.tertiary {
+    color: #000000;
+    background-color: #ffab40;
+  }
+  .item-page-header.success {
+    color: #000000;
+    background-color: #69f0ae;
+    border-bottom: 1px solid #80cbc4;
+  }
+  .item-page-inner {
+    display: flex;
+    flex-direction: column;
+    .label {
+      font-size: 1.5em;
+    }
+    .item-label {
+      position: relative;
+      width: 100%;
+      flex: 1;
+    }
+    .item-type {
+      position: relative;
+      width: 100%;
+      flex: 1;
+    }
+  }
+}
+.additive-id {
+  font-size: 2em;
+}
+.search-inner {
+  height: calc(100vh - 10em);
+}
+.search-label {
+  font-size: 2em;
+}
+.search-page {
+  .search-input {
+    font-size: 4em !important;
+  }
+}
+
+:root {
+  --ion-color-tertiary: #ffab40;
+  --ion-color-danger: #f50057;
+  --ion-color-warning: #ef6c00;
+  --ion-color-success: #69f0ae;
+}
+legend.danger {
+  color: #f50057;
+  --color: #f50057;
+}
+lgend.warning {
+  color: #ef6c00;
+  --color: #ef6c00;
+}
+legend.tertiary {
+  color: #ffab40;
+  --color: #ffab40;
+}
+legend.success {
+  color: #69f0ae;
+  --color: #69f0ae;
+}

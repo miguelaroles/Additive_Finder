@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-item',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _route: ActivatedRoute) { }
+  public additive: any;
 
   ngOnInit(): void {
+    this.additive = this._route.snapshot.data['additive'];
+  }
+
+  ionViewWillEnter(): void {
+    this.additive = this._route.snapshot.data['additive'];
   }
 
 }

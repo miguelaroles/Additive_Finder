@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-list',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _route: ActivatedRoute) { }
+
+  public list: any[] = [];
 
   ngOnInit(): void {
+    this.list = this._route.snapshot.data['list'];
+  }
+
+  ionViewWillEnter(): void {
+    this.list = this._route.snapshot.data['list'];
   }
 
 }
