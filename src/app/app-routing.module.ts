@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from "./features/not-found/not-found.component";
 import { ListResolver } from "./liste-page/list/resolvers/list.resolver";
-import {ItemResolver} from "./item-page/item/resolvers/item.resolver";
+import { ItemResolver } from "./item-page/item/resolvers/item.resolver";
+import { SearchResolver } from "./search-page/search/resolvers/search.resolver";
+import {DetailResolver} from "./item-page/item/resolvers/detail.resolver";
 
 const routes: Routes = [
   {
@@ -16,14 +18,18 @@ const routes: Routes = [
   {
     path: 'search', loadChildren: () =>
       import('./search-page/search-page.module')
-        .then(module => module.SearchPageModule)
+        .then(module => module.SearchPageModule),
+    resolve: {
+      ids: SearchResolver
+    },
   },
   {
     path: 'item/:id', loadChildren: () =>
       import('./item-page/item-page.module')
         .then(module => module.ItemPageModule),
     resolve: {
-      additive: ItemResolver
+      additive: ItemResolver,
+      detail: DetailResolver
     },
   },
   {

@@ -1,14 +1,14 @@
 <ion-header collapse="fade">
   <ion-toolbar>
     <ion-title class="ion-text-left">Liste des additifs</ion-title>
-    <ion-buttons slot="end">
+    <ion-buttons (click)="handleOpenModal()" slot="end">
       <ion-icon class="ion-padding-horizontal" name="information-circle-outline"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content class="list-page app-content">
   <ion-list>
-    <ion-item *ngFor="let item of list" lines="none" class="ion-item ion-no-padding ion-no-margin">
+    <ion-item *ngFor="let item of list | slice : 0: maxDisplay" lines="none" class="ion-item ion-no-padding ion-no-margin">
       <ion-grid class="list-grid ion-no-margin ion-no-padding">
         <ion-row [routerLink]="['/item',item.id]" class="ion-no-margin ion-no-padding ion-activatable ripple-parent">
           <ion-col class="list-id {{ item.level | color }}" size="3">
@@ -27,9 +27,50 @@
     </ion-item>
   </ion-list>
 
-  <ion-infinite-scroll threshold="100px" id="infinite-scroll">
-    <ion-infinite-scroll-content loading-spinner="bubbles" loading-text="Loading more data...">
-
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
+  <ion-modal trigger="open-modal" [isOpen]="isModalOpen" #modal>
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Fermer</ion-button>
+          </ion-buttons>
+          <ion-title>Légende des couleurs</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-list lines="none">
+          <ion-item>
+            <ion-text color="success">
+              <ion-icon name="ellipse"></ion-icon>
+            </ion-text>
+            <ion-text class="ion-text-capitalize ion-text-left ion-padding-start">acceptable</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text color="tertiary">
+              <ion-icon name="ellipse"></ion-icon>
+            </ion-text>
+            <ion-text class="ion-text-capitalize ion-text-left ion-padding-start">à éviter</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text color="warning">
+              <ion-icon name="ellipse"></ion-icon>
+            </ion-text>
+            <ion-text class="ion-text-capitalize ion-text-left ion-padding-start">contreversé</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-text color="danger">
+              <ion-icon name="ellipse"></ion-icon>
+            </ion-text>
+            <ion-text class="ion-text-capitalize ion-text-left ion-padding-start">danger</ion-text>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

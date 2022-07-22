@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
 import {
-  Resolve,
+  Router, Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { ListService } from "../../../liste-page/list/servives/list.service";
+import { Observable, of } from 'rxjs';
+import {ListService} from "../../../liste-page/list/servives/list.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class ItemResolver implements Resolve<boolean> {
+export class DetailResolver implements Resolve<boolean> {
+
   constructor(private readonly _services: ListService) { }
+
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
-    return this._services.getItemById(route.params['id']);
+    return this._services.getDetail(route.params['id']);
   }
 }
