@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ToastController } from '@ionic/angular';
@@ -12,7 +12,7 @@ import { IonModal } from '@ionic/angular';
 export class SearchComponent implements OnInit {
   @ViewChild(IonModal) modal!: IonModal;
   public searchForm!: FormGroup;
-  public ids!: any[];
+  public ids!: string[];
   public isModalOpen: boolean = false;
 
   constructor(
@@ -64,7 +64,7 @@ export class SearchComponent implements OnInit {
   }
 
   cancel() {
-    this.modal.dismiss(null, 'cancel');
+    this.modal.dismiss(null, 'cancel').then(() => {});
     this.isModalOpen = false;
   }
 }

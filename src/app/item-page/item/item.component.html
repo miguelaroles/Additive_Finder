@@ -16,7 +16,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="item-page app-content">
-  <ion-grid>
+  <ion-grid class="ion-no-padding ion-no-margin">
     <ion-row>
       <ion-col
         class="{{ additive?.level | color }} ion-text-center ion-no-padding ion-no-margin item-page-header ion-align-items-center ion-justify-content-center"
@@ -33,11 +33,11 @@
           {{ additive?.level | legend }}
         </ion-text>
       </ion-col>
-      <ion-col *ngIf="detail" class="ion-margin-top" size="12">
+      <ion-col *ngIf="detail" class="ion-margin-top ion-padding" size="12">
         <ion-label>Détails :</ion-label>
         <ion-grid>
           <ion-row class="ion-margin-top" lines="none">
-            <ion-col size="12">
+            <ion-col class="ion-margin-bottom" size="12">
               <ion-thumbnail class="image-detail">
                 <img src="{{ detail?.thumbnail?.source || '/assets/images/placeholder.png' }}" alt="additif">
               </ion-thumbnail>
