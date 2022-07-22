@@ -1,7 +1,8 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import {Component, ViewChild, OnInit, EventEmitter} from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { IonModal } from '@ionic/angular';
 import { IonInfiniteScroll } from '@ionic/angular';
+import { Additive } from "../../Interfaces/additive.interface";
 
 
 @Component({
@@ -15,7 +16,7 @@ export class ListComponent implements OnInit {
 
   constructor(private _route: ActivatedRoute) { }
   public isModalOpen: boolean = false;
-  public list: any[] = [];
+  public list: Additive[] = [];
   public maxDisplay: number = 10;
 
   ngOnInit(): void {
@@ -35,11 +36,11 @@ export class ListComponent implements OnInit {
     this.isModalOpen = false;
   }
 
-  loadData(event:any) {
+  loadData($event: any) {
     setTimeout(() => {
       if(this.list.length >= this.maxDisplay){
         this.maxDisplay = this.maxDisplay + 10;
-        event.target.complete();
+        $event.target.complete();
       }
     }, 500);
   }

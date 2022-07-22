@@ -11,7 +11,7 @@ import { ListService } from "../../../liste-page/list/servives/list.service";
 })
 export class ItemResolver implements Resolve<boolean> {
   constructor(private readonly _services: ListService) { }
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<any> {
     return this._services.getItemById(route.params['id']);
   }
 }

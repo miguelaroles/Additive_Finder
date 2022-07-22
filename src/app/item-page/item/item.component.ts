@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { IonModal } from '@ionic/angular';
+import { Additive, wikipediaResponse } from 'src/app/Interfaces/additive.interface';
 
 @Component({
   selector: 'app-item',
@@ -10,8 +11,8 @@ import { IonModal } from '@ionic/angular';
 export class ItemComponent implements OnInit {
   @ViewChild(IonModal) modal!: IonModal;
   constructor(private _route: ActivatedRoute) { }
-  public additive: any;
-  public detail: any;
+  public additive!: any;
+  public detail!: wikipediaResponse;
   public isModalOpen: boolean = false;
 
   ngOnInit(): void {
