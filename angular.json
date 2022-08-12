@@ -167,6 +167,9 @@
               "browserTarget": "TP-Final:build:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
